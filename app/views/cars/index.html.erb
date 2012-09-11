@@ -1,41 +1,36 @@
-<h1>Listing cars</h1>
-
-<table>
-  <tr>
-    <th>Make</th>
-    <th>Model</th>
-    <th>Year</th>
-    <th>Price</th>
-    <th>Vin</th>
-    <th>Milage</th>
-    <th>Used</th>
-    <th>Type</th>
-    <th>Color</th>
-    <th>Transmission</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @cars.each do |car| %>
-  <tr>
-    <td><%= car.make %></td>
-    <td><%= car.model %></td>
-    <td><%= car.year %></td>
-    <td><%= car.price %></td>
-    <td><%= car.vin %></td>
-    <td><%= car.milage %></td>
-    <td><%= car.used %></td>
-    <td><%= car.type %></td>
-    <td><%= car.color %></td>
-    <td><%= car.transmission %></td>
-    <td><%= link_to 'Show', car %></td>
-    <td><%= link_to 'Edit', edit_car_path(car) %></td>
-    <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<%- model_class = Car -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:make) %></th>
+      <th><%= model_class.human_attribute_name(:model) %></th>
+      <th><%= model_class.human_attribute_name(:year) %></th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:vin) %></th>
+      <th><%= model_class.human_attribute_name(:milage) %></th>
+      <th><%= model_class.human_attribute_name(:used) %></th>
+      <th><%= model_class.human_attribute_name(:car_type) %></th>
+      <th><%= model_class.human_attribute_name(:color) %></th>
+      <th><%= model_class.human_attribute_name(:transmission) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.year %></td>
+        <td><%= car.price %></td>
+        <td><%= car.vin %></td>
+        <td><%= car.milage %></td>
+        <td><%= car.used %></td>
+        <td><%= car.car_type %></td>
+        <td><%= car.color %></td>
+        <td><%= car.transmission %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Car', new_car_path %>

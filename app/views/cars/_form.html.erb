@@ -1,57 +1,68 @@
-<%= form_for(@car) do |f| %>
-  <% if @car.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@car.errors.count, "error") %> prohibited this car from being saved:</h2>
-
-      <ul>
-      <% @car.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @car, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :year, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :year, :class => 'number_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :price, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :price, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :vin, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :vin, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :milage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :milage, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :used, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :used, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :make, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :make, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :model, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :model, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :car_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :car_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :color, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :color, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :transmission, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :transmission, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :make %><br />
-    <%= f.text_field :make %>
-  </div>
-  <div class="field">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br />
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.number_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :vin %><br />
-    <%= f.text_field :vin %>
-  </div>
-  <div class="field">
-    <%= f.label :milage %><br />
-    <%= f.number_field :milage %>
-  </div>
-  <div class="field">
-    <%= f.label :used %><br />
-    <%= f.check_box :used %>
-  </div>
-  <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :transmission %><br />
-    <%= f.text_field :transmission %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                cars_path, :class => 'btn' %>
   </div>
 <% end %>

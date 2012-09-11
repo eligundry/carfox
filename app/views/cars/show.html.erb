@@ -1,55 +1,32 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Car -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Make:</b>
-  <%= @car.make %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:make) %>:</strong></dt>
+  <dd><%= @car.make %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:model) %>:</strong></dt>
+  <dd><%= @car.model %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:year) %>:</strong></dt>
+  <dd><%= @car.year %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @car.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:vin) %>:</strong></dt>
+  <dd><%= @car.vin %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:milage) %>:</strong></dt>
+  <dd><%= @car.milage %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:used) %>:</strong></dt>
+  <dd><%= @car.used %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:car_type) %>:</strong></dt>
+  <dd><%= @car.car_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:color) %>:</strong></dt>
+  <dd><%= @car.color %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:transmission) %>:</strong></dt>
+  <dd><%= @car.transmission %></dd>
+</dl>
 
-<p>
-  <b>Model:</b>
-  <%= @car.model %>
-</p>
-
-<p>
-  <b>Year:</b>
-  <%= @car.year %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @car.price %>
-</p>
-
-<p>
-  <b>Vin:</b>
-  <%= @car.vin %>
-</p>
-
-<p>
-  <b>Milage:</b>
-  <%= @car.milage %>
-</p>
-
-<p>
-  <b>Used:</b>
-  <%= @car.used %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%= @car.type %>
-</p>
-
-<p>
-  <b>Color:</b>
-  <%= @car.color %>
-</p>
-
-<p>
-  <b>Transmission:</b>
-  <%= @car.transmission %>
-</p>
-
-
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              cars_path, :class => 'btn'  %>
+</div>
