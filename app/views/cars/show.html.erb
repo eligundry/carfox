@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Make:</b>
+  <%= @car.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @car.model %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @car.year %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @car.price %>
+</p>
+
+<p>
+  <b>Vin:</b>
+  <%= @car.vin %>
+</p>
+
+<p>
+  <b>Milage:</b>
+  <%= @car.milage %>
+</p>
+
+<p>
+  <b>Used:</b>
+  <%= @car.used %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @car.type %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @car.color %>
+</p>
+
+<p>
+  <b>Transmission:</b>
+  <%= @car.transmission %>
+</p>
+
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
